@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pokefy/static/css/main.ec239dbe.css",
-    "main.js": "/pokefy/static/js/main.c725a07d.js",
+    "main.js": "/pokefy/static/js/main.eec4d5d0.js",
     "static/js/787.a2f34b89.chunk.js": "/pokefy/static/js/787.a2f34b89.chunk.js",
     "static/media/mon-10-Blastoise.png": "/pokefy/static/media/mon-10-Blastoise.3c7b2b0958e1c39a3887.png",
     "static/media/mon-35-Venusaur.png": "/pokefy/static/media/mon-35-Venusaur.71f48c6edbffacb72f65.png",
@@ -156,11 +156,11 @@
     "static/media/mon-74-Aerodactyl.png": "/pokefy/static/media/mon-74-Aerodactyl.6080cf99451c9b45846c.png",
     "index.html": "/pokefy/index.html",
     "main.ec239dbe.css.map": "/pokefy/static/css/main.ec239dbe.css.map",
-    "main.c725a07d.js.map": "/pokefy/static/js/main.c725a07d.js.map",
+    "main.eec4d5d0.js.map": "/pokefy/static/js/main.eec4d5d0.js.map",
     "787.a2f34b89.chunk.js.map": "/pokefy/static/js/787.a2f34b89.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ec239dbe.css",
-    "static/js/main.c725a07d.js"
+    "static/js/main.eec4d5d0.js"
   ]
 }
