@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 import "./App.css";
 import axios from "axios";
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, Card, Stack } from "@mui/material";
+import { borderRadius, textTransform } from "@mui/system";
 
 function App() {
 
@@ -15,6 +16,46 @@ function App() {
 
   const imagesContext = require.context('./151', true, /\.(png|jpeg|jpg|gif|svg)$/);
   const imageKeys = imagesContext.keys();
+
+  const buttonStyle = {
+    display: "block",
+    position: 'absolute',
+    margin: 'auto',
+    top: '42%',
+    left: '42%',
+    backgroundColor:"#4d8a41",
+    color: "white",
+    padding: '10px',
+    borderRadius:'20px',
+    textTransform: 'none',
+    "&:hover": {
+      backgroundColor:" #8fbf86",
+    }
+  }
+
+  const imgStyle = {
+    margin: 'auto',
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  }
+
+  const textStyle = {
+    maxWidth: '66%',
+    display: 'block',
+    margin: 'auto'
+  }
+
+  const cardStyle = {
+    borderRadius: '10px',
+    width: '150px',
+    height:'150px',
+    left: 'calc(50% - 75px)',
+    backgroundColor: '#4d8a41',
+    position:'relative'
+  }
   
   const sortedImageKeys = imageKeys.sort((a, b) => {
     const nameA = parseInt(a.match(/\d+/g), 10);
@@ -97,23 +138,31 @@ function App() {
   else if(!mon){
     return (
       <div>
-        <Button onClick={getTopTracks} sx={{display: "block", margin: 'auto', marginTop: '10%'}}>Calculate My Spotify Pokemon</Button>
+        <Button onClick={getTopTracks} sx={buttonStyle}>Calculate My Spotify Pokemon</Button>
       </div>
     );
   }
 
   return(
-    <div>
+    <Stack sx={{display: 'flex', justifyContent: 'center'}}>
       {/* <ul>
         {topTracks.map(track => (
           <li key={track.id}>{track.name + "popularity: " + track.popularity}</li>
         ))} 
-      </ul> */}
-        {topTracks.length ? 
-        <Typography>{"The average popularity of your top 50 recent tracks is  " + popularity + " out of 100, this makes you a " + mon + "!"}</Typography> : 
-        <></>}
-        {topTracks.length ? <img src={(images[popKey])} alt="Pokemon representing popularity" /> : <></>}
-    </div>
+      </ul> */} 
+        <Typography sx={textStyle}>
+          {"The average popularity of your top 50 recent tracks is  " + popularity + " out of 100, this makes you a " + mon + "!"}
+        </Typography>
+        <Card sx={cardStyle}>
+          <img src={(images[popKey])} height="100px" style={imgStyle} alt="Pokemon representing popularity" />
+        </Card>
+        <Typography sx={textStyle}>
+          {mon + "is ranked #" + (popKey+1) + " out of 151 Pokemon by popularity based on a poll conducted by "}
+          <a href="https://www.reddit.com/user/mamamia1001/">/u/mamamia1001.</a>
+          {"You can see the results of the poll "}
+          <a href="https://www.reddit.com/r/pokemon/comments/c0w4s0/favourite_pok%C3%A9mon_survey_results/">here.</a>
+        </Typography>
+    </Stack>
   )
 }
 
